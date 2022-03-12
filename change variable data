@@ -1,0 +1,18 @@
+main() {
+  String rollNo = '21020';
+  print(int.tryParse(rollNo));
+  // output : 21020
+  String height = '7.5';
+  print(double.tryParse(height));
+  // output : 7.5
+  int age = 20;
+  print(age.toString());
+  // output : 20
+  double percentage = 75.5;
+  print(percentage.toInt());
+  // output : 75
+  int firstNo = 40;
+  print(firstNo.toDouble());
+  double Cgpa = 3.6;
+  print(Cgpa.toString());
+}
