@@ -1,0 +1,130 @@
+import 'dart:io';
+
+List<dynamic> arr1 = [];
+int total = 0;
+String? name;
+String? rollNo;
+String? classno;
+String? course;
+int? choice;
+void enter() {
+  print("How many Students do you want enter ");
+
+  choice = int.parse(stdin.readLineSync()!);
+  for (int i = 0; i < choice!; i++) {
+    print("Enter a Data of Studet ${i + 1} \n");
+    print("Enter a Name");
+    name = stdin.readLineSync();
+    print("Enter a Roll No");
+    rollNo = stdin.readLineSync()!;
+    print("Enter a Class");
+    classno = stdin.readLineSync()!;
+    print("Enter a Course Id");
+    course = stdin.readLineSync()!;
+  }
+}
+
+void show() {
+  for (int i = 0; i < choice!; i++) {
+    print("Enter a Data of Studet ${i + 1} \n");
+    print("Name $name");
+    print("Roll No: $rollNo");
+    print("Class: $classno");
+    print("Course Id: $course");
+    print("<!> \n");
+  }
+}
+
+void search() {
+  String Roll;
+  print("Enter Your RollNo to find result");
+  Roll = stdin.readLineSync()!;
+  for (int i = 0; i < choice!; i++) {
+    if (Roll == rollNo) {
+      print("Name $name");
+      print("Roll No: $rollNo");
+      print("Class: $classno");
+      print("Course Id: $course");
+      print("<!> \n");
+    }
+  }
+}
+
+void update() {
+  String uRoll;
+  print("Enter The Roll No to Update record");
+  uRoll = stdin.readLineSync()!;
+  for (int i = 0; i < choice!; i++) {
+    if (uRoll == rollNo) {
+      print("<Pervious Record>");
+      print("Name $name");
+      print("Roll No: $rollNo");
+      print("Class: $classno");
+      print("Course Id: $course");
+      print("<!> \n");
+
+      print("<Update Data>");
+
+      print("Enter a Name");
+      name = stdin.readLineSync();
+      stdout.write("Enter a Roll No");
+      rollNo = stdin.readLineSync()!;
+      stdout.write("Enter a Class");
+      classno = stdin.readLineSync()!;
+      stdout.write("Enter a Course Id");
+      course = stdin.readLineSync()!;
+    }
+  }
+}
+
+void delete() {
+  int dRoll;
+  print("Press 1 one Delete Record ");
+  dRoll = int.parse(stdin.readLineSync()!);
+  switch (dRoll) {
+    case 1:
+      choice = 0;
+      print("Data is Deleted");
+      break;
+    default:
+      {
+        print("Please Enter Vaild Number");
+      }
+  }
+}
+
+main() {
+  var value;
+  do {
+    print("School Management System");
+    print("1.Press 1 to Enter a student Data ");
+    print("2.Press 2 to Show  Student  Data");
+    print("3.Press 3 to Search a Data");
+    print("4.Press 4 to Update Data");
+    print("5.Press 5 to Delete a Record");
+    print("6.Press 6 to Exist");
+    value = int.parse(stdin.readLineSync()!);
+    switch (value) {
+      case 1:
+        enter();
+        break;
+      case 2:
+        show();
+        break;
+      case 3:
+        search();
+        break;
+      case 4:
+        update();
+        break;
+
+      case 5:
+        delete();
+        break;
+      default:
+        {
+          print("Please Enter Vaild Number");
+        }
+    }
+  } while (value != 6);
+}
